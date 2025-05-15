@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevOps Git Practice</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+    }
+
+    /* Container for tool blocks */
+    .tool-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    /* Individual tool block */
+    .tool-block {
+      background-color: #1e2a38;
+      border-radius: 10px;
+      padding: 20px;
+      width: 250px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .tool-block:hover {
+      transform: translateY(-5px);
+      background-color: #2c3e50;
+    }
+
+    .tool-block h2 {
+      margin-bottom: 10px;
+      font-size: 1.5em;
+      color: #00d8ff;
+    }
+
+    .tool-block p {
+      font-size: 1em;
+      color: #ccc;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      background-color: #1e2a38;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .tool-block {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>DevOps Support Practice2 branch only changes made </h1>
+  <div class="tool-container">
+    <div class="tool-block" onclick="openModal('Docker')">
+      <h2>Docker</h2>
+      <p>Containerization solutions for scalable applications.</p>
+    </div>
+    <div class="tool-block" onclick="openModal('Kubernetes')">
+      <h2>Kubernetes</h2>
+      <p>Orchestrate your containers with ease and efficiency.</p>
+    </div>
+    <div class="tool-block" onclick="openModal('Terraform')">
+      <h2>Terraform</h2>
+      <p>Infrastructure as Code for automated deployments.</p>
+    </div>
+    <div class="tool-block" onclick="openModal('Jenkins')">
+      <h2>Jenkins</h2>
+      <p>Continuous Integration and Delivery pipelines.</p>
+    </div>
+    <div class="tool-block" onclick="openModal('Ansible')">
+      <h2>Ansible</h2>
+      <p>Automate your IT infrastructure seamlessly.</p>
+    </div>
+    <!-- Add more tool blocks as needed -->
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="toolModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle">Tool Name</h2>
+      <p id="modalDescription">Detailed description of the tool and support services offered.</p>
+    </div>
+  </div>
+
+  <script>
+    const toolDetails = {
+      'Docker': 'Our Docker support includes containerization of applications, creating Dockerfiles, managing Docker Compose setups, and optimizing container performance for scalable deployments.',
+      'Kubernetes': 'We provide Kubernetes support for cluster setup, deployment strategies, service discovery, and maintaining high availability across your containerized applications.',
+      'Terraform': 'Our Terraform services encompass writing and managing Infrastructure as Code, provisioning cloud resources, and integrating with CI/CD pipelines for automated deployments.',
+      'Jenkins': 'We assist with setting up Jenkins pipelines, integrating with various tools, automating build and deployment processes, and ensuring continuous integration and delivery workflows.',
+      'Ansible': 'Our Ansible support includes automating configuration management, orchestrating complex deployments, and managing infrastructure with simple, human-readable playbooks.'
+      // Add more tool details as needed
+    };
+
+    function openModal(toolName) {
+      document.getElementById('modalTitle').innerText = toolName;
+      document.getElementById('modalDescription').innerText = toolDetails[toolName] || 'Support details coming soon.';
+      document.getElementById('toolModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('toolModal').style.display = 'none';
+    }
+
+    // Close modal when clicking outside of the modal content
+    window.onclick = function(event) {
+      const modal = document.getElementById('toolModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
